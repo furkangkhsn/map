@@ -1,0 +1,61 @@
+#directions-panel {
+    position: fixed;
+    display: none;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(255, 255, 255, .85);
+    padding: 10px;
+    border-radius: 1.5rem;
+}
+
+#directions-panel .route {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(43, 198, 215);
+    border-radius: 1.5rem;
+    margin: 5px;
+    padding: 5px;
+    align-items: center;
+}
+
+#directions-panel .route .no {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 5px 0px;
+    width: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#directions-panel .route .from-to {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#directions-panel .route .uzaklik {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 100%;
+}
+
+#rut_hesapla {
+    position: fixed;
+    background-color: white;
+    width: 64px;
+    height: 64px;
+    top: 65px;
+    right: 13px;
+    border: none;
+    z-index: 99999999;
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/map.css">
+    <title>Document</title>
+    <style>
+        body, html {margin:0;padding:0}
+        .map {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <button id="rut_hesapla" onclick="rut_hesapla()">Rutu Hesapla</button>
+    <div id="directions-panel"></div>
+    <div id="map" class="map"></div>
+    <script src="js/data.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQcAAYcxP6HtJ8vZNrIRbKwfLHUbx0QdM&callback=initMap"
+    async defer></script>
+    <script src="js/map.js"></script>
+</body>
+</html>
