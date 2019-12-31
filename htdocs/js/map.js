@@ -94,44 +94,7 @@ function rut_hesapla() {
 function rut_ciz() {
     console.log(window.wp);
     
-    let request = {
-        origin: window.start_point,
-        destination: window.wp[window.wp.length-1],
-        waypoints: window.wp,
-        optimizeWaypoints: true,
-        travelMode: 'DRIVING'
-    };
-    directionsService.route(request, function(result, status) {
-        if (status == 'OK') {
-            console.log(result);
-            directionsRenderer.setDirections(result);
-            var route = result.routes[0];
-            let orders = route.waypoint_order;
-            var summaryPanel = document.getElementById('directions-panel');
-            /*summaryPanel.innerHTML = `
-                <div class="route">
-                    <div class="no">${ 1 }</div>
-                    <div class="from-to">
-                        <div class="nereden">${ route.legs[0].start_address }</div>    
-                    </div>
-                    <div class="uzaklik">${ route.legs[0].distance.text }</div>
-                </div>
-            `;
-            // For each route, display summary information.
-            for (var i = 1; i < route.legs.length; i++) {
-                var routeSegment = i + 1;
-                summaryPanel.innerHTML += `
-                    <div class="route">
-                        <div class="no">${ routeSegment }</div>
-                        <div class="from-to">
-                            <div class="nereden" route_id='${orders[i]}'>${ route.legs[i].end_address } </div>
-                        </div>
-                        <div class="uzaklik">${ route.legs[i].distance.text }</div>
-                    </div>
-                `;
-            }*/
-        }
-    });
+    
 }
 /*
 var request = {
