@@ -1,8 +1,5 @@
 class Harita  {
-    constructor(url) {
-        this.url = url;
-
-    }
+    constructor() {}
 
     static create() {
         return new Harita();
@@ -15,51 +12,26 @@ class Harita  {
 
     setCallback(callback) {
         this.callback = callback;
-    }
-
-    show() {
-        //URL den verileri al
-        //eğer rut listesi varsa ekrana çiz
-        //Modalı göster
+        return this;
     }
 
     veriGetir() {
-        let veri;fetch('http://localhost:8888/veri').then(r => r.json()).then(data=> {
-            veri = data;
-            let event = new CustomEvent('musterileriAl', { detail: veri });
-            document.dispatchEvent(event);
-            let event2 = new Event('goster');
-            document.dispatchEvent(event2);
-            let event3 = new CustomEvent('musteriCallback', { detail: function(data) {
-                console.log('Tamam');
-                console.log(data);
-            } });
-            document.dispatchEvent(event3);
+        fetch(this.url).then(r => r.json()).then(data=> {
+            this.veri = data;
+            this.veri.callback = this.callback;
+            this.veriBas();
         });
-        this.veri =
-fetch('http://localhost:8888/veri').then(r => r.json()).then(data=> {
-    let veri = data;
-    veri.callback = function(data) {
-        console.log('Tamam');
-        console.log(data);
-    }
-    let event = new CustomEvent('musterileriAl', { detail: veri });
-    document.dispatchEvent(event);
-    let event4 = new Event('goster');
-    document.dispatchEvent(event4);
-});
-        this.veriBas();
+        return this;
     }
 
     veriBas() {
-        let event = new CustomEvent('musterileriAl', { detail: this.veri.veri });
-        document.dispatchEvent(event);
-        let event2 = new CustomEvent('sortedClients', { detail: this.veri.sorted });
-        document.dispatchEvent(event2);
+        document.dispatchEvent(new CustomEvent('musterileriAl', { detail: this.veri }));
+        this.goster();
+        return this;
     }
 
     goster() {
-        let event = new Event('goster');
-        document.dispatchEvent(event);
+        document.dispatchEvent(new Event('goster'));
+        return this;
     }
 }
