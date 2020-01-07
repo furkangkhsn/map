@@ -1,5 +1,8 @@
 class Harita  {
-    constructor() {}
+    constructor(url) {
+        this.url = url;
+
+    }
 
     static create() {
         return new Harita();
@@ -21,17 +24,16 @@ class Harita  {
             this.veri.callback = this.callback;
             this.veriBas();
         });
-        return this;
     }
 
     veriBas() {
-        document.dispatchEvent(new CustomEvent('musterileriAl', { detail: this.veri }));
-        this.goster();
-        return this;
+        let event = new CustomEvent('musterileriAl', { detail: this.veri });
+        document.dispatchEvent(event);
     }
 
     goster() {
-        document.dispatchEvent(new Event('goster'));
-        return this;
+        this.veriGetir();
+        let event = new Event('goster');
+        document.dispatchEvent(event);
     }
 }
